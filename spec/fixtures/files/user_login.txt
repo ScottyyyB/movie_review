@@ -1,0 +1,1 @@
+{"data"=>{"id"=>User.last.id, "email"=>"test@example.com", "provider"=>"email", "uid"=>"test@example.com", "name"=>nil, "nickname"=>nil, "image"=>nil}}
