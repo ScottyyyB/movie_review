@@ -10,14 +10,14 @@
         1,
         null
       ],
-      "/Users/Bartels/CraftA/Ruby_Rails/movie-review-api/app/controllers/application_controller.rb": [
-        1,
-        1,
-        null
-      ],
       "/Users/Bartels/CraftA/Ruby_Rails/movie-review-api/app/controllers/api/v0/ping_controller.rb": [
         0,
         0,
+        0,
+        0,
+        0
+      ],
+      "/Users/Bartels/CraftA/Ruby_Rails/movie-review-api/app/controllers/application_controller.rb": [
         0,
         0,
         0
@@ -28,6 +28,6 @@
         0
       ]
     },
-    "timestamp": 1519749019
+    "timestamp": 1519750518
   }
 }
