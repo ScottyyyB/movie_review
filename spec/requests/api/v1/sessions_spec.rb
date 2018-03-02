@@ -13,9 +13,8 @@ RSpec.describe 'User Sessions', type: :request do
         password: user.password
       }, headers: headers
 
-      expected_response = eval(file_fixture('user_login.txt').read)
       expect(response.status).to eq 200
-      expect(response_json).to eq expected_response.as_json
+      expect(response_json).to eq expected_response('user_login.txt')
     end
 
     it 'should not create session for user if password is incorrect' do
