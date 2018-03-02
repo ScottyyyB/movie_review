@@ -24,9 +24,9 @@ RSpec.describe Movie, type: :model do
                   less_than(300.kilobytes) }
   end
 
-  describe FactoryBot do
+  describe FactoryBot do 
     it 'should be valid' do
-      expect(FactoryBot.create(:movie)).to be_valid
+      expect(FactoryBot.create(:movie, image: fixture_file_upload('files/blade_runner.jpeg'))).to be_valid
     end
   end
 end

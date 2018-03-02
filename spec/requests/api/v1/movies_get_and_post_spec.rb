@@ -37,7 +37,8 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: 'Gandalf Tales', body: 'Once upon a time, there was an old fart...',
-          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf', image: large_file
+          release_date: "#{Date.today}", rating: 'PG-13',
+          director: 'Gandalf', image: large_file
         }
       }, headers: headers
 
@@ -49,7 +50,8 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: 'Gandalf Tales', body: 'Once upon a time, there was an old fart...',
-          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf', image: false_file
+          release_date: "#{Date.today}", rating: 'PG-13',
+          director: 'Gandalf', image: false_file
         }
       }, headers: headers
 
@@ -61,7 +63,8 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: '', body: 'Once upon a time, there was an old fart...',
-          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf'
+          release_date: "#{Date.today}", rating: 'PG-13',
+          director: 'Gandalf', image: correct_file
         }
       }, headers: headers
 
@@ -73,7 +76,8 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: 'Michael Jordan Legacy', body: 'Once upon a time, there was an old fart...',
-          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf'
+          release_date: "#{Date.today}", rating: 'PG-13',
+          director: 'Gandalf', image: correct_file
         }
       }, headers: headers
 
@@ -85,7 +89,7 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: 'Gandalf Tales', body: '',
-          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf'
+          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf', image: correct_file
         }
       }, headers: headers
 
@@ -97,7 +101,8 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: 'Gandalf Tales', body: 'Old fart',
-          release_date: "", rating: 'PG-13', director: 'Gandalf'
+          release_date: "", rating: 'PG-13',
+          director: 'Gandalf', image: correct_file
         }
       }, headers: headers
 
@@ -109,7 +114,8 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: 'Gandalf Tales', body: 'Old fart',
-          release_date: "#{Date.today}", rating: '', director: 'Gandalf'
+          release_date: "#{Date.today}", rating: '',
+          director: 'Gandalf', image: correct_file
         }
       }, headers: headers
 
@@ -121,7 +127,8 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: 'Gandalf Tales', body: 'Old fart',
-          release_date: "#{Date.today}", rating: 'PG-13', director: ''
+          release_date: "#{Date.today}", rating: 'PG-13',
+          director: '', image: correct_file
         }
       }, headers: headers
 
