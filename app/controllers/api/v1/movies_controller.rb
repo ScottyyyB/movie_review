@@ -9,6 +9,7 @@ class Api::V1::MoviesController < ApplicationController
     if @movie.save
       render json: { message: "#{@movie.title} has been successfully created." }
     else
+      @movie.errors.delete(:image)
       render json: { errors: @movie.errors.full_messages },
              status: :unprocessable_entity
     end
@@ -20,6 +21,6 @@ class Api::V1::MoviesController < ApplicationController
   private
 
   def movie_params
-    params.require(:movie).permit(:title, :body, :release_date, :rating, :director)
+    params.require(:movie).permit(:title, :body, :release_date, :rating, :director, :image)
   end
 end

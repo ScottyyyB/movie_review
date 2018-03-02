@@ -8,6 +8,7 @@ RSpec.describe Movie, type: :model do
     it { should have_db_column :release_date }
     it { should have_db_column :rating }
     it { should have_db_column :director }
+    it { should have_attached_file :image }
   end
 
   describe 'Validations' do
@@ -17,6 +18,10 @@ RSpec.describe Movie, type: :model do
     it { should validate_presence_of :release_date }
     it { should validate_presence_of :rating }
     it { should validate_presence_of :director }
+    it { should validate_attachment_content_type(:image).
+                  allowing('image/jpeg') }
+    it { should validate_attachment_size(:image).
+                  less_than(300.kilobytes) }
   end
 
   describe FactoryBot do

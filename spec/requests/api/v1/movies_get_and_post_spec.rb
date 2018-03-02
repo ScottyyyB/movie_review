@@ -2,9 +2,13 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::MoviesController, type: :request do
   let(:headers) { { HTTP_ACCEPT: 'application/json' } }
+  let(:correct_file) { fixture_file_upload('files/blade_runner.jpeg') }
+  let(:large_file) { fixture_file_upload('files/clifford_red_dog.jpg') }
+  let(:false_file) { fixture_file_upload('files/100w.gif') }
+
   before do
-    2.times { FactoryBot.create(:movie) }
-    FactoryBot.create(:movie, title: 'Michael Jordan Legacy')
+    2.times { FactoryBot.create(:movie, image: fixture_file_upload('files/blade_runner.jpeg')) }
+    FactoryBot.create(:movie, title: 'Michael Jordan Legacy', image: fixture_file_upload('files/blade_runner.jpeg'))
   end
 
   describe 'GET /api/v1/movies' do
@@ -21,12 +25,36 @@ RSpec.describe Api::V1::MoviesController, type: :request do
       post '/api/v1/movies', params: {
         movie: {
           title: 'Gandalf Tales', body: 'Once upon a time, there was an old fart...',
-          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf'
+          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf', image: correct_file
         }
       }, headers: headers
 
       expect(response.status).to eq 200
       expect(response_json['message']).to eq 'Gandalf Tales has been successfully created.'
+    end
+
+    it 'should not create a new movie if image is too large' do
+      post '/api/v1/movies', params: {
+        movie: {
+          title: 'Gandalf Tales', body: 'Once upon a time, there was an old fart...',
+          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf', image: large_file
+        }
+      }, headers: headers
+
+      expect(response.status).to eq 422
+      expect(response_json['errors'][0]).to eq "Image file size must be less than 300 KB"
+    end
+
+    it 'should not create a new movie if image file name is neither jpg or jpeg' do
+      post '/api/v1/movies', params: {
+        movie: {
+          title: 'Gandalf Tales', body: 'Once upon a time, there was an old fart...',
+          release_date: "#{Date.today}", rating: 'PG-13', director: 'Gandalf', image: false_file
+        }
+      }, headers: headers
+
+      expect(response.status).to eq 422
+      expect(response_json['errors'][0]).to eq "Image file name is invalid"
     end
 
     it 'should not create a new movie if title is blank' do
