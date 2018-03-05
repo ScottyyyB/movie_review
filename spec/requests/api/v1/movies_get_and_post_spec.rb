@@ -20,6 +20,14 @@ RSpec.describe Api::V1::MoviesController, type: :request do
     end
   end
 
+  describe 'DELETE /api/v1/movies' do
+    it 'should delete a movie' do
+      delete "/api/v1/movies/#{Movie.first.id}", headers: headers
+
+      expect(response.status).to eq 200
+    end
+  end
+
   describe 'POST /api/v1/movies' do
     it 'should create a new movie' do
       post '/api/v1/movies', params: {
