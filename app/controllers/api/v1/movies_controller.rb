@@ -16,6 +16,9 @@ class Api::V1::MoviesController < ApplicationController
   end
 
   def destroy
+    @movie = Movie.find(params[:id])
+    @movie.delete
+    render status: 200
   end
 
   private
