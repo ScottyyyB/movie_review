@@ -5,6 +5,5 @@ class Movie < ApplicationRecord
   validates_attachment_presence :image
   validates_attachment_content_type :image, content_type: /\Aimage/
   validates_attachment_file_name :image, matches: [/png\z/, /jpe?g\z/]
-
   validates_attachment_size :image, less_than: 300.kilobytes
 end

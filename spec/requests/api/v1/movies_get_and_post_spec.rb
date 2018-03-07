@@ -15,6 +15,7 @@ RSpec.describe Api::V1::MoviesController, type: :request do
     it 'should return all movies' do
       get '/api/v1/movies', headers: headers
 
+      binding.pry
       expect(response.status).to eq 200
       expect(response_json).to eq expected_response('get_movies.txt')
     end

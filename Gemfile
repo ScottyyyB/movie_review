@@ -29,6 +29,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
