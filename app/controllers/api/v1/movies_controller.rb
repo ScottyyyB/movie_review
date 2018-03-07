@@ -7,7 +7,6 @@ class Api::V1::MoviesController < ApplicationController
   def create
     @movie = Movie.new(movie_params)
     if @movie.save
-      binding.pry
       render json: { message: "#{@movie.title} has been successfully created." }
     else
       @movie.errors.delete(:image)
