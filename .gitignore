@@ -14,4 +14,6 @@
 !/tmp/.keep
 coverage
 public
+.env
+
 .byebug_history
