@@ -5,3 +5,4 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+Movie.create(title: 'Blade Runner', body: 'Freaking beast boy', rating: 'PG-13', director: 'Gandalf', release_date: 'March 21st, 2018', image: File.open("#{Rails.root}/spec/fixtures/files/blade_runner.jpeg"))

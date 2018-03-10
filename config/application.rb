@@ -27,7 +27,7 @@ module MovieReviewApi
       allow do
         origins '*'
         resource '*', headers: :any, methods: [:get, :post, :put, :delete],
-                      expose: %w(access-token, expiry, token-type, uid, client)
+                      expose: %w(access-token expiry token-type uid client)
       end
     end
   end

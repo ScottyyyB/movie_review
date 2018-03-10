@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 gem "paperclip", "~> 5.2.1"
+gem 'aws-sdk', '~> 2.3'
 gem 'devise_token_auth'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.5'
@@ -28,6 +29,7 @@ gem 'active_model_serializers', '~> 0.10.0'
 gem 'rack-cors'
 
 group :development, :test do
+  gem 'dotenv-rails'
   gem 'pry-byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
