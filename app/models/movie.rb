@@ -2,6 +2,8 @@ class Movie < ApplicationRecord
   validates :title, :body, :release_date, :rating, :director, presence: true
   validates :title, uniqueness: true
   has_many :reviews
+  has_many :ratings 
+  
   has_attached_file :image
   # validates_attachment_presence :image
   validates_attachment_content_type :image, content_type: /\Aimage/

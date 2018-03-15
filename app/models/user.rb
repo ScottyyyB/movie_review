@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable
   include DeviseTokenAuth::Concerns::User
   has_many :reviews
+  has_many :ratings
 end
